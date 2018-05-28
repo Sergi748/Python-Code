@@ -1,3 +1,4 @@
+
 ###############################################################################
 # Sacar el valor el mas alto posible de un input dado
 ###############################################################################
@@ -9,41 +10,41 @@ input = sorted(input)
 
 result = []
 if "-" in input:
-  result.append("-")
-input.remove("-")
-if "." in input:
-  newlist = input.copy()
-newlist.remove(".")
-for i in range(len(newlist)):
-  result.append(newlist[i])
-result.insert(2, ".")
-result = ''.join(result)
-if len(set(input[1:])) == 1 and list(set(input[2:]))[0] == '0':
-  result = 0
-print(result)
+    result.append("-")
+    input.remove("-")
+    if "." in input:
+        newlist = input.copy()
+        newlist.remove(".")
+        for i in range(len(newlist)):
+            result.append(newlist[i])
+        result.insert(2, ".")
+        result = ''.join(result)
+        if len(set(input[1:])) == 1 and list(set(input[2:]))[0] == '0':
+            result = 0
+        print(result)
+    else:
+        for i in range(len(input)):
+            result.append(input[i])
+        result = ''.join(result)
+        print(result)
 else:
-  for i in range(len(input)):
-  result.append(input[i])
-result = ''.join(result)
-print(result)
-else:
-  if "." in input:
-  newlist = input.copy()
-newlist.remove(".")
-for i in range(len(newlist)):
-  result.append(newlist[::-1][i])
-result.insert(len(result) -1 , ".")
-result = ''.join(result)    
-if len(set(input[len(result) -1:])) == 1 and '0' in list(set(input[len(result) -2:])):
-  result = result[0:len(result) -2]
-print(result)    
-else:
-  for i in range(len(input)):
-  result.append(input[::-1][i])
-result = ''.join(result)
-print(result)
-
-
+    if "." in input:
+        newlist = input.copy()
+        newlist.remove(".")
+        for i in range(len(newlist)):
+            result.append(newlist[::-1][i])
+        result.insert(len(result) -1 , ".")
+        result = ''.join(result)    
+        if len(set(input[len(result) -1:])) == 1 and '0' in list(set(input[len(result) -2:])):
+            result = result[0:len(result) -2]
+        print(result)    
+    else:
+        for i in range(len(input)):
+            result.append(input[::-1][i])
+        result = ''.join(result)
+        print(result)
+        
+        
 ###############################################################################
 #Binary with 0 and 1 is good, but binary with only 0, or almost, is even better! 
 #Originally, this is a concept designed by Chuck Norris to send so called unary messages.
@@ -75,20 +76,20 @@ character = 'C'
 result = []
 output = ""
 for l in range(len(character)):
-  a = ord(character[l]) # 1000011
-
-for i in reversed(range(0, 7)):
-  if a & (2 ** i) != 0:
-  result.append("0")
-else:
-  result.append("00")
-
-for k in range(len(result)):
-  if k == 0:
-  output = "0 0" if result[k] == "0" else "00 0"
-else:
-  output = output + '0' if result[k] == result[k-1] else output + str(' ') + str(result[k]) + str(' 0') 
-
+    a = ord(character[l]) # 1000011
+    
+    for i in reversed(range(0, 7)):
+        if a & (2 ** i) != 0:
+            result.append("0")
+        else:
+            result.append("00")
+    
+    for k in range(len(result)):
+        if k == 0:
+            output = "0 0" if result[k] == "0" else "00 0"
+        else:
+            output = output + '0' if result[k] == result[k-1] else output + str(' ') + str(result[k]) + str(' 0') 
+                    
 print(output)
 
 
@@ -102,12 +103,12 @@ input = input.split()
 result = ""
 
 for i in range(len(input)):
-  if i == 0:
-  result = int(input[i])
-else:
-  if abs(int(input[i])) <= abs(result):
-  if result int(input[i]):result = int(input[i])
-
+    if i == 0:
+        result = int(input[i])
+    else:
+        if abs(int(input[i])) <= abs(result):
+            if result int(input[i]):result = int(input[i])
+            
 print(result)        
 
 ###############################################################################
@@ -122,7 +123,7 @@ input = "because first these could which hicquwh"
 input = input.split()
 
 dicc = {"a":1,"b":3,"c":3,"d":2,"e":1,"f":4,"g":2,"h":4,"i":1,"j":8,"k":5,"l":1,"m":3,
-  "n":1,"o":1,"p":3,"q":10,"r":1,"s":1,"t":1,"u":1,"v":4,"w":4,"y":4,"z":10}
+        "n":1,"o":1,"p":3,"q":10,"r":1,"s":1,"t":1,"u":1,"v":4,"w":4,"y":4,"z":10}
 
 elementkey = input[len(input) - 1]
 dicckey = {}
@@ -132,35 +133,35 @@ count = []
 word = []
 
 for i in range(len(input)-1):
-  element = input[i]
-dicc2 = {}
-a = 0
-for x in element: dicc2.setdefault(x, element.count(x))
-prueba = []
-for key in range(len(list(dicc2.keys()))):
-  if list(dicc2.keys())[key] in list(dicckey.keys()) and list(dicc2.values())[key] <= dicckey.get(list(dicc2.keys())[key]):
-  prueba.append("TRUE")
-else:
-  prueba.append("FALSE")
+    element = input[i]
+    dicc2 = {}
+    a = 0
+    for x in element: dicc2.setdefault(x, element.count(x))
+    prueba = []
+    for key in range(len(list(dicc2.keys()))):
+        if list(dicc2.keys())[key] in list(dicckey.keys()) and list(dicc2.values())[key] <= dicckey.get(list(dicc2.keys())[key]):
+           prueba.append("TRUE")
+        else:
+           prueba.append("FALSE")
 
-if "TRUE" in set(prueba) and len(set(prueba)) == 1:
-  for k in range(len(list(set(element)))):
-  if input[i][k] in input[len(input)-1]:
-  for l in range(len(list(dicc.keys()))):
-  if input[i][k] == list(dicc.keys())[l]:
-  a = a + list(dicc.values())[l]
-word.append(input[i])
-count.append(a)
+    if "TRUE" in set(prueba) and len(set(prueba)) == 1:
+        for k in range(len(list(set(element)))):
+            if input[i][k] in input[len(input)-1]:
+                for l in range(len(list(dicc.keys()))):
+                    if input[i][k] == list(dicc.keys())[l]:
+                        a = a + list(dicc.values())[l]
+        word.append(input[i])
+        count.append(a)
 
 count_final = 0
 result = []
 for n in range(len(count)):
-  if n == 0:
-  count_final = count[n]
-result = word[n]
-else:
-  if count[n] > count_final:
-  count_final = count[n]
-result = word[n]
-
+    if n == 0:
+        count_final = count[n]
+        result = word[n]
+    else:
+        if count[n] > count_final:
+            count_final = count[n]
+            result = word[n]
+            
 print(result)
