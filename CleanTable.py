@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May  8 16:58:37 2018
-
-@author: Sergio Campos Moreno
-"""
 # Library
 import pandas as pd
 
@@ -20,12 +14,12 @@ tablon['Sum_NA'] = tablon.isnull().sum(axis=1)
 # Input NA´s
 vars_na = tablon.columns[tablon.isnull().any()].tolist()
 for i in tablon.columns:
-  if i in vars_na:
-  if tablon[i].dtype != 'object':
-  tablon[i].fillna(round(tablon[i].dropna().mean()), inplace=True)
-else:
-  tablon[i].fillna(tablon[i].dropna().mode()[len(tablon[i].dropna().mode())-1], inplace=True)
-
+    if i in vars_na:
+        if tablon[i].dtype != 'object':
+            tablon[i].fillna(round(tablon[i].dropna().mean()), inplace=True)
+        else:
+            tablon[i].fillna(tablon[i].dropna().mode()[len(tablon[i].dropna().mode())-1], inplace=True)
+            
 del vars_na, i
 
 # Add different variables in a table
@@ -35,10 +29,10 @@ tablon['Children'] = tablon['Age'].apply(lambda x: 1 if x < 12 else 0)
 # Create dummies for variable
 vars_dummy = ['Sex', 'Embarked']
 for i in range(len(tablon.columns)):    
-  if tablon.columns.values[i] in vars_dummy:
-  for k in set(tablon.iloc[:,i]):
-  name = tablon.columns.values[i] + "." + str(k)
-tablon[name] = tablon[tablon.columns.values[i]].apply(lambda x: 1 if x == k else 0)
+    if tablon.columns.values[i] in vars_dummy:
+        for k in set(tablon.iloc[:,i]):
+            name = tablon.columns.values[i] + "." + str(k)
+            tablon[name] = tablon[tablon.columns.values[i]].apply(lambda x: 1 if x == k else 0)
 
 vars_dummy.append('Name')
 vars_dummy.append('Ticket')
@@ -48,7 +42,7 @@ del name, i, k, vars_dummy
 # Grouped dummies of variable Cabin
 tipos = tablon['Cabin'].apply(lambda x: x[0]).unique()
 for i in tipos:
-  tablon['Cabin'+'.'+i] = tablon['Cabin'].apply(lambda x: 1 if x[0] == i else 0)
+    tablon['Cabin'+'.'+i] = tablon['Cabin'].apply(lambda x: 1 if x[0] == i else 0)
 
 del tipos, i
 tablon.drop('Cabin', axis=1, inplace=True)
