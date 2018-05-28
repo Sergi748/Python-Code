@@ -56,3 +56,4 @@ tablon.drop('Fare', axis=1, inplace=True)
 
 # Save table complete
 tablon.to_csv(path_output + "\\" + "tablon_completo.csv")
+
