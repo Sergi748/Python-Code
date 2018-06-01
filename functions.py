@@ -90,4 +90,4 @@ def createDummies(table, vars = None, remove = False):
 
 a = createDummiesBasics(df2)
 b = createDummiesVars(df2, vars)
-c = createDummies(df2, vars,remove = True)
+c = createDummies(df2, vars, remove = True)
