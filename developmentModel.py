@@ -14,11 +14,11 @@ from sklearn.metrics import roc_auc_score
 
 # Paths
 path = ""
-pathData = path + "//" + "Data"
-pathOutput = path + "//" + "Resultados"
+pathData = path + "/" + "Data"
+pathOutput = path + "/" + "Resultados"
 
 # Development
-tablon = pd.read_csv(pathData + "//" + "tablon_completo.csv")
+tablon = pd.read_csv(pathData + "/" + "tablon_completo.csv")
 varsTablon = list(tablon)
 
 # Count target
@@ -75,7 +75,7 @@ orderVars = ['PassengerId','Pclass','Age','SibSp','Parch','Fare','Sex.male','Sex
 tablon = tablon[orderVars]
 
 # Save dataframe in csv
-tablon.to_csv(pathOutput + "//" + "trainTest.csv", index = False)
+tablon.to_csv(pathOutput + "/" + "trainTest.csv", index = False)
 
 # Split-out validation dataset
 array = tablon.values
