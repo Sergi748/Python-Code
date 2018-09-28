@@ -2,11 +2,11 @@
 import pandas as pd
 
 # Path
-path = "C:\\Users\\NB23625\\Documents\\PRUEBAS PERSONALES\\1. Titanic"
-path_output = path + "\\" + "Resultados"
+path = "C:/Users/NB23625/Documents/PRUEBAS PERSONALES/1. Titanic"
+path_output = path + "/" + "Resultados"
 
 # Load data
-tablon = pd.read_csv(path + "\\" + "train titanic.csv", sep = ";")
+tablon = pd.read_csv(path + "/" + "train titanic.csv", sep = ";")
 
 # Desarrollo
 # Create variable with NA´s by row
@@ -55,5 +55,5 @@ tablon['Fare_high'] = tablon['Fare'].apply(lambda x: 1 if x > 1000000 else 0)
 tablon.drop('Fare', axis=1, inplace=True)
 
 # Save table complete
-tablon.to_csv(path_output + "\\" + "tablon_completo.csv")
+tablon.to_csv(path_output + "/" + "tablon_completo.csv", index = False)
 
