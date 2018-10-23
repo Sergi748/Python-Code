@@ -29,7 +29,7 @@ import pylab as pl
 import cmath as math
 
 # Read dataset
-df = pd.read_csv('C:/Users/Sergi/Desktop/shared_folder/UC_Orange/entrega/LandlineScore/data/data_model_adsl.csv', sep = ";")
+df = pd.read_csv('file.csv', sep = ";")
 df.columns = map(str.upper, df.columns)
 df['TARGET_V3'] = np.where(df['VL_SCORE_VOICE_LANDLINE']<=3, 1, 0)
 print(df.DE_TIPO_PRODUCTO.value_counts())
